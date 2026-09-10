@@ -1,0 +1,17 @@
+Primerio Prompt:Agora vamos fazer a terceira etapa,
+eu vou querer um site no estilo do aplicativo escola paraná(já que o linktree vai ter tema de estudante),
+resumidamente quero um fundo branco com os botões e outros elementos em uma paleta de cores azul,
+os botões e outros elementos serão arredondados(sem formas com pontas),
+a respeito do espaçamento você cria o site de um jeito que preencha a página sem ficar com muitos espaços com nada porém também evite poluir demais a página.
+
+Segundo Prompt:Gostei do resultado mas eu acho que faltou da minha parte separar cada coisa melhor,
+vou criar uma nova versão desse HTML daí você cria mais uma versão do CSS, aliás,
+pode mudar o css um pouco para preencher melhor a página,
+aumente os botões também para combinar com as imagens que agora vão ter em cada.
+
+Terceiro Prompt:divida a página em duas na esquerda da página vai ter o container com o perfil e o "sobre mim"
+ e do outro lado vai ter os links, desse modo a página fica preenchida e continua fácil de navegar.
+
+Passo 6: 
+    Problema: Quando você clica 2 vezes bem rápido no botão d copiar link, a imagem do botão buga e não volta ao original
+    Solução: A solução foi colocar "botao.disabled = true" ou "botao.disabled = false" para limitar cliques e evitar bugs.

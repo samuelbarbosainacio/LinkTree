@@ -1,0 +1,324 @@
+/* =========================================
+   style.css — Meu LinkTree (Samuel Barbosa)
+   Passo 4: Personalização MANUAL (5 alterações do aluno)
+   + correção de reposicionamento do perfil sobre o header
+   ========================================= */
+
+:root {
+  --azul-escuro: #0d3b7a;
+  --azul-principal: #1565c0;
+  --azul-medio: #2f7de1;
+  --azul-claro: #e8f1fd;
+  --azul-claro-2: #d3e6fc;
+  --branco: #ffffff;
+  --texto: #1c2b3a;
+  --texto-suave: #5b6b7a;
+  --raio: 22px;
+  --raio-botao: 26px;
+
+  /* Controles fáceis de reposicionamento do perfil */
+  --avatar-tamanho: 150px;   /* mude o tamanho da foto só aqui */
+  --card-sobreposicao: -30px; /* quanto o card branco "sobe" por cima do header */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: var(--branco);
+  color: var(--texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Cabeçalho com blobs decorativos --- */
+header {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: linear-gradient(135deg, var(--azul-escuro), var(--azul-principal) 60%, var(--azul-medio));
+  color: var(--branco);
+  text-align: center;
+  padding: 42px 20px 90px; /* padding-bottom aumentado: dá espaço pro card sobreposto sem cobrir o título */
+  border-radius: 0 0 40px 40px;
+}
+
+header::before,
+header::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+header::before {
+  width: 180px;
+  height: 180px;
+  top: -80px;
+  right: -50px;
+}
+
+header::after {
+  width: 120px;
+  height: 120px;
+  bottom: -60px;
+  left: -30px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+header h1 {
+  position: relative;
+  font-size: 55px;
+  font-weight: 600; /* corrigido: font-weight não aceita "px", só o número */
+  letter-spacing: 0.3px;
+  font-family: "Constantia", "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* --- Conteúdo principal --- */
+main {
+  width: 100%;
+  max-width: 480px;
+  padding: 0 22px 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+
+/* --- Cartão de perfil --- */
+.container {
+  /* Ajuste estes valores para mover o cartão inteiro. */
+  --container-deslocamento-x: -100px;
+  --container-deslocamento-y: 30px;
+  /* Ajuste este valor para controlar o espaço acima da foto. */
+  --espaco-superior: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: var(--branco);
+  border-radius: var(--raio);
+    padding: var(--espaco-superior) 20px 24px;
+  margin-top: calc(var(--card-sobreposicao) * -1);
+  box-shadow: 10px 20px 50px rgba(13, 59, 122, 0.15);
+  position: relative; /* para o z-index do hover da foto funcionar */
+  transform: translate(var(--container-deslocamento-x), var(--container-deslocamento-y));
+  z-index: 1;
+}
+
+.container img {
+  width: var(--avatar-tamanho);
+  height: var(--avatar-tamanho);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--branco);
+  box-shadow: 0 8px 20px rgba(21, 101, 192, 0.3);
+  /* puxa a foto pra cima em exatamente metade da própria altura:
+     ela sempre fica "pendurada" na borda do card, esteja ele onde estiver */
+  margin-top: calc(var(--avatar-tamanho) / -2);
+  background-color: var(--azul-claro);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.container img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 12px 28px rgba(21, 101, 192, 0.4);
+}
+
+.container h1 {
+ 
+  font-size: 30px;
+  color: var(--azul-escuro);
+
+  padding: 0 0  90px;
+}
+
+.sobre-mim {
+  margin-top: 20px;
+  width: 100%;
+  background-color: var(--azul-claro);
+  border-radius: var(--raio);
+  padding: 16px 18px;
+}
+
+.sobre-mim h2 {
+  font-size: 0.85rem;
+  color: var(--azul-principal);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.sobre-mim h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--texto-suave);
+}
+
+/* --- Título "Links" --- */
+main > h1 {
+  align-self: flex-start;
+  font-size: 1rem;
+  color: var(--azul-escuro);
+  margin-left: 4px;
+}
+
+/* --- Lista de links --- */
+ul {
+  list-style: none;
+  width: 100%;
+}
+
+.links {
+  width: 600px;
+  max-width: 100%; /* evita que os 600px estourem a tela em celulares */
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.link-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--azul-claro);
+  border-radius: var(--raio-botao);
+  padding: 12px 20px 12px 12px;
+  box-shadow: 0 4px 14px rgba(21, 101, 192, 0.12);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.link-item:hover {
+  background-color: var(--azul-claro-2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(21, 101, 192, 0.22);
+}
+
+.link-item img {
+  width: 65px;
+  height: 65px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--branco);
+  object-fit: contain;
+  box-shadow: 0 2px 8px rgba(13, 59, 122, 0.12);
+  flex-shrink: 0;
+}
+
+.link-item li {
+  flex: 1;
+}
+
+.link-item li a {
+  display: block;
+  text-decoration: none;
+  color: var(--azul-escuro);
+  font-weight: 600;
+  font-size: 1.02rem;
+}
+
+/* --- Rodapé --- */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 18px;
+  font-size: 0.75rem;
+  color: var(--texto-suave);
+  background-color: var(--azul-claro);
+  border-radius: 40px 40px 0 0;
+  margin-top: auto;
+}
+
+/* =========================================
+   Layout em duas colunas
+   Esquerda: perfil | Direita: links
+   Ativa a partir de telas maiores;
+   abaixo disso continua empilhado (mobile)
+   ========================================= */
+@media (min-width: 700px) {
+  main {
+    max-width: 860px;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    grid-template-rows: auto 1fr;
+    align-items: start;
+    column-gap: 40px;
+    row-gap: 0;
+    padding-top: 20px;
+  }
+
+  .container {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: start;
+    position: sticky;
+    top: 24px;
+  }
+
+  main > h1 {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 4px;
+    font-size: 1.15rem;
+  }
+
+  ul {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 18px;
+  }
+}
+
+/* --- Boas-Vindas --- */
+
+.bem-vindo {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--azul-principal);
+  color: var(--branco);
+  padding: 12px 18px;
+  border-radius: var(--raio-botao);
+  box-shadow: 0 4px 14px rgba(21, 101, 192, 0.22);
+  font-size: 1.125rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.bem-vindo.visivel {
+  opacity: 1;
+}
+
+/* --- Botão de copiar link (Passo 6) --- */
+.copiar-link {
+  border: none;
+  background-color: var(--branco);
+  color: var(--azul-principal);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(13, 59, 122, 0.12);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+ 
+.copiar-link:hover {
+  background-color: var(--azul-claro-2);
+}
+ 
+.copiar-link.copiado {
+  background-color: var(--azul-principal);
+  color: var(--branco);
+  transform: scale(1.15);
+}
