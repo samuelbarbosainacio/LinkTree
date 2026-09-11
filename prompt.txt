@@ -12,6 +12,6 @@ aumente os botões também para combinar com as imagens que agora vão ter em ca
 Terceiro Prompt:divida a página em duas na esquerda da página vai ter o container com o perfil e o "sobre mim"
  e do outro lado vai ter os links, desse modo a página fica preenchida e continua fácil de navegar.
 
-Passo 6: 
-    Problema: Quando você clica 2 vezes bem rápido no botão d copiar link, a imagem do botão buga e não volta ao original
+Passo 6 — Funcionalidade EXTRA COM IA: 
+    Problema: Quando você clica 2 vezes bem rápido no botão de copiar link, a imagem do botão buga e não volta ao original
     Solução: A solução foi colocar "botao.disabled = true" ou "botao.disabled = false" para limitar cliques e evitar bugs.
