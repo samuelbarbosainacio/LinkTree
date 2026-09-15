@@ -4,7 +4,7 @@ resumidamente quero um fundo branco com os botões e outros elementos em uma pal
 os botões e outros elementos serão arredondados(sem formas com pontas),
 a respeito do espaçamento você cria o site de um jeito que preencha a página sem ficar com muitos espaços com nada porém também evite poluir demais a página.
 
-Segundo Prompt:Gostei do resultado mas eu acho que faltou da minha parte separar cada coisa melhor,
+Segundo Prompt:
 vou criar uma nova versão desse HTML daí você cria mais uma versão do CSS, aliás,
 pode mudar o css um pouco para preencher melhor a página,
 aumente os botões também para combinar com as imagens que agora vão ter em cada.
@@ -12,6 +12,16 @@ aumente os botões também para combinar com as imagens que agora vão ter em ca
 Terceiro Prompt:divida a página em duas na esquerda da página vai ter o container com o perfil e o "sobre mim"
  e do outro lado vai ter os links, desse modo a página fica preenchida e continua fácil de navegar.
 
-Passo 6 — Funcionalidade EXTRA COM IA: 
-    Problema: Quando você clica 2 vezes bem rápido no botão de copiar link, a imagem do botão buga e não volta ao original
+Passo 6: 
+    Problema: Quando você clica 2 vezes bem rápido no botão d copiar link, a imagem do botão buga e não volta ao original
     Solução: A solução foi colocar "botao.disabled = true" ou "botao.disabled = false" para limitar cliques e evitar bugs.
+
+Passo 9:
+ Primerio trecho: No CSS, da linha 283 até o final eu tive auxílio da IA, essa parte é uma estilização
+e como  visualmente ficaria o botão de copiar link, como emote e cor. Essa parte eu tive que concertar um erro(descrito na parte 6).
+
+ Segundo Trecho: Ainda no CSS, a partir da linha 155 até a 209 eu tive ajuda da IA para estilizar, unir e 
+uniformizar os elementos, na parte da estilização. 
+
+Desafio Extra: Fiz um botão de compartilhar o próprio linktree com outras pessoas, copiando o link da página para compartilhar.
+Fiz o html e JS enquanto a IA fez o CSS.

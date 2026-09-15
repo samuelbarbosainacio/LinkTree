@@ -4,22 +4,7 @@
    + correção de reposicionamento do perfil sobre o header
    ========================================= */
 
-:root {
-  --azul-escuro: #0d3b7a;
-  --azul-principal: #1565c0;
-  --azul-medio: #2f7de1;
-  --azul-claro: #e8f1fd;
-  --azul-claro-2: #d3e6fc;
-  --branco: #ffffff;
-  --texto: #1c2b3a;
-  --texto-suave: #5b6b7a;
-  --raio: 22px;
-  --raio-botao: 26px;
 
-  /* Controles fáceis de reposicionamento do perfil */
-  --avatar-tamanho: 150px;   /* mude o tamanho da foto só aqui */
-  --card-sobreposicao: -30px; /* quanto o card branco "sobe" por cima do header */
-}
 
 * {
   margin: 0;
@@ -29,8 +14,8 @@
 
 body {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  background-color: var(--branco);
-  color: var(--texto);
+  background-color: #ffffff;
+  color: #1f2937;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -42,8 +27,8 @@ header {
   position: relative;
   overflow: hidden;
   width: 100%;
-  background: linear-gradient(135deg, var(--azul-escuro), var(--azul-principal) 60%, var(--azul-medio));
-  color: var(--branco);
+  background: linear-gradient(135deg, #0d3b7a, #1565c0 60%, #1976d2);
+  color: #ffffff;
   text-align: center;
   padding: 42px 20px 90px; /* padding-bottom aumentado: dá espaço pro card sobreposto sem cobrir o título */
   border-radius: 0 0 40px 40px;
@@ -84,46 +69,41 @@ header h1 {
 main {
   width: 100%;
   max-width: 480px;
-  padding: 0 22px 44px;
+  padding: 0 20px 44px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 26px;
+  gap: 20px;
 }
 
 /* --- Cartão de perfil --- */
 .container {
-  /* Ajuste estes valores para mover o cartão inteiro. */
-  --container-deslocamento-x: -100px;
-  --container-deslocamento-y: 30px;
-  /* Ajuste este valor para controlar o espaço acima da foto. */
-  --espaco-superior: 10px;
-  width: 100%;
+  width: calc(100% - 40px);
+  max-width: 340px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: var(--branco);
-  border-radius: var(--raio);
-    padding: var(--espaco-superior) 20px 24px;
-  margin-top: calc(var(--card-sobreposicao) * -1);
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 10px 20px 24px;
+  margin-top: 45px; /* margem-top aumentada: dá espaço pro card sobreposto sem cobrir o título */
   box-shadow: 10px 20px 50px rgba(13, 59, 122, 0.15);
-  position: relative; /* para o z-index do hover da foto funcionar */
-  transform: translate(var(--container-deslocamento-x), var(--container-deslocamento-y));
-  z-index: 1;
+
+  
+  transform: translate(0, 0);
+
 }
 
 .container img {
-  width: var(--avatar-tamanho);
-  height: var(--avatar-tamanho);
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid var(--branco);
+  border: 5px solid #ffffff;
   box-shadow: 0 8px 20px rgba(21, 101, 192, 0.3);
-  /* puxa a foto pra cima em exatamente metade da própria altura:
-     ela sempre fica "pendurada" na borda do card, esteja ele onde estiver */
-  margin-top: calc(var(--avatar-tamanho) / -2);
-  background-color: var(--azul-claro);
+  margin-top: -70px;
+  background-color: #e3f2fd;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -135,7 +115,7 @@ main {
 .container h1 {
  
   font-size: 30px;
-  color: var(--azul-escuro);
+  color: #0d3b7a;
 
   padding: 0 0  90px;
 }
@@ -143,14 +123,14 @@ main {
 .sobre-mim {
   margin-top: 20px;
   width: 100%;
-  background-color: var(--azul-claro);
-  border-radius: var(--raio);
+  background-color: #e3f2fd;
+  border-radius: 24px;
   padding: 16px 18px;
 }
 
 .sobre-mim h2 {
   font-size: 0.85rem;
-  color: var(--azul-principal);
+  color: #1565c0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
@@ -160,14 +140,14 @@ main {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.55;
-  color: var(--texto-suave);
+  color: #64748b;
 }
 
 /* --- Título "Links" --- */
 main > h1 {
   align-self: flex-start;
   font-size: 1rem;
-  color: var(--azul-escuro);
+  color: #0d3b7a;
   margin-left: 4px;
 }
 
@@ -183,6 +163,8 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  
+
 }
 
 .link-item {
@@ -190,15 +172,15 @@ ul {
   display: flex;
   align-items: center;
   gap: 16px;
-  background-color: var(--azul-claro);
-  border-radius: var(--raio-botao);
+  background-color: #e3f2fd;
+  border-radius: 16px;
   padding: 12px 20px 12px 12px;
   box-shadow: 0 4px 14px rgba(21, 101, 192, 0.12);
   transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .link-item:hover {
-  background-color: var(--azul-claro-2);
+  background-color: #bbdefb;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(21, 101, 192, 0.22);
 }
@@ -208,7 +190,7 @@ ul {
   height: 65px;
   padding: 10px;
   border-radius: 50%;
-  background-color: var(--branco);
+  background-color: #ffffff;
   object-fit: contain;
   box-shadow: 0 2px 8px rgba(13, 59, 122, 0.12);
   flex-shrink: 0;
@@ -221,7 +203,7 @@ ul {
 .link-item li a {
   display: block;
   text-decoration: none;
-  color: var(--azul-escuro);
+  color: #0d3b7a;
   font-weight: 600;
   font-size: 1.02rem;
 }
@@ -232,8 +214,8 @@ footer {
   text-align: center;
   padding: 18px;
   font-size: 0.75rem;
-  color: var(--texto-suave);
-  background-color: var(--azul-claro);
+  color: #64748b;
+  background-color: #e3f2fd;
   border-radius: 40px 40px 0 0;
   margin-top: auto;
 }
@@ -255,39 +237,39 @@ footer {
     row-gap: 0;
     padding-top: 20px;
   }
-
+ 
   .container {
+    left: calc(50% - 430px);
+    top: 30px;
     grid-column: 1;
     grid-row: 1 / span 2;
-    align-self: start;
-    position: sticky;
-    top: 24px;
   }
-
+ 
   main > h1 {
     grid-column: 2;
     grid-row: 1;
     margin-top: 4px;
     font-size: 1.15rem;
   }
-
+ 
   ul {
     grid-column: 2;
     grid-row: 2;
     margin-top: 18px;
   }
+
 }
 
 /* --- Boas-Vindas --- */
 
 .bem-vindo {
   position: fixed;
-  top: 20px;
+  top: 30px;
   right: 20px;
-  background-color: var(--azul-principal);
-  color: var(--branco);
+  background-color: #1565c0;
+  color: #ffffff;
   padding: 12px 18px;
-  border-radius: var(--raio-botao);
+  border-radius: 16px;
   box-shadow: 0 4px 14px rgba(21, 101, 192, 0.22);
   font-size: 1.125rem;
   opacity: 0;
@@ -301,8 +283,8 @@ footer {
 /* --- Botão de copiar link (Passo 6) --- */
 .copiar-link {
   border: none;
-  background-color: var(--branco);
-  color: var(--azul-principal);
+  background-color: #ffffff;
+  color: #1565c0;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -314,11 +296,44 @@ footer {
 }
  
 .copiar-link:hover {
-  background-color: var(--azul-claro-2);
+  background-color: #bbdefb;
 }
  
 .copiar-link.copiado {
-  background-color: var(--azul-principal);
-  color: var(--branco);
+  background-color: #1565c0;
+  color: #ffffff;
   transform: scale(1.15);
 }
+
+/* --- Botão de compartilhar (Desafio extra) --- */
+.compartilhar {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+}
+ 
+.compartilhar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 30px 70px;
+  border-radius: 999px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+ 
+.compartilhar-btn:hover {
+  background-color: rgba(255, 255, 255, 0.28);
+}
+ 
+.compartilhar-btn.copiado {
+  background-color: #ffffff;
+  color: #1565c0;
+}
+ 

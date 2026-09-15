@@ -30,3 +30,22 @@ botoesCopiar.forEach((botao) => {
   });
 });
  
+// --- Passo 9: Botão de copiar link ---
+
+const botaoCompartilhar = document.querySelector(".compartilhar-btn");
+botaoCompartilhar.addEventListener("click", () => {
+
+  botaoCompartilhar.disabled = true; 
+
+  const linkTreeUrl = window.location.href;
+  navigator.clipboard.writeText(linkTreeUrl);
+  const textoOriginal = botaoCompartilhar.textContent;
+  botaoCompartilhar.textContent = "✔";
+  botaoCompartilhar.classList.add("copiado");
+
+  setTimeout(() => {
+    botaoCompartilhar.textContent = textoOriginal;
+    botaoCompartilhar.classList.remove("copiado");
+    botaoCompartilhar.disabled = false; 
+  }, 1500);
+});
