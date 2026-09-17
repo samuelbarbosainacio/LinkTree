@@ -259,6 +259,10 @@ footer {
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(13, 59, 122, 0.12);
   transition: background-color 0.2s ease;
+display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
 }}
 
 
