@@ -1,10 +1,6 @@
 /* =========================================
    style.css — Meu LinkTree (Samuel Barbosa)
-   Passo 4: Personalização MANUAL (5 alterações do aluno)
-   + correção de reposicionamento do perfil sobre o header
    ========================================= */
-
-
 
 * {
   margin: 0;
@@ -30,7 +26,7 @@ header {
   background: linear-gradient(135deg, #0d3b7a, #1565c0 60%, #1976d2);
   color: #ffffff;
   text-align: center;
-  padding: 42px 20px 90px; /* padding-bottom aumentado: dá espaço pro card sobreposto sem cobrir o título */
+  padding: 42px 20px 90px;
   border-radius: 0 0 40px 40px;
 }
 
@@ -60,7 +56,7 @@ header::after {
 header h1 {
   position: relative;
   font-size: 55px;
-  font-weight: 600; /* corrigido: font-weight não aceita "px", só o número */
+  font-weight: 600;
   letter-spacing: 0.3px;
   font-family: "Constantia", "Segoe UI", Roboto, Arial, sans-serif;
 }
@@ -87,12 +83,9 @@ main {
   background-color: #ffffff;
   border-radius: 24px;
   padding: 10px 20px 24px;
-  margin-top: 45px; /* margem-top aumentada: dá espaço pro card sobreposto sem cobrir o título */
+  margin-top: 45px;
   box-shadow: 10px 20px 50px rgba(13, 59, 122, 0.15);
-
-  
   transform: translate(0, 0);
-
 }
 
 .container img {
@@ -113,11 +106,9 @@ main {
 }
 
 .container h1 {
- 
   font-size: 30px;
   color: #0d3b7a;
-
-  padding: 0 0  90px;
+  padding: 0 0 90px;
 }
 
 .sobre-mim {
@@ -159,12 +150,10 @@ ul {
 
 .links {
   width: 600px;
-  max-width: 100%; /* evita que os 600px estourem a tela em celulares */
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  
-
 }
 
 .link-item {
@@ -222,9 +211,6 @@ footer {
 
 /* =========================================
    Layout em duas colunas
-   Esquerda: perfil | Direita: links
-   Ativa a partir de telas maiores;
-   abaixo disso continua empilhado (mobile)
    ========================================= */
 @media (min-width: 700px) {
   main {
@@ -237,31 +223,47 @@ footer {
     row-gap: 0;
     padding-top: 20px;
   }
- 
+
   .container {
     left: calc(50% - 430px);
     top: 30px;
     grid-column: 1;
     grid-row: 1 / span 2;
   }
- 
+
   main > h1 {
     grid-column: 2;
     grid-row: 1;
     margin-top: 4px;
     font-size: 1.15rem;
   }
- 
+
   ul {
     grid-column: 2;
     grid-row: 2;
     margin-top: 18px;
   }
+.escuro-claro {
+  position: absolute;
+  top: 70px; /* logo abaixo do .compartilhar (que está em top: 16px) */
+  left: 16px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background-color: #ffffff; /* modo claro: branco */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(13, 59, 122, 0.12);
+  transition: background-color 0.2s ease;
+}}
 
-}
+
 
 /* --- Boas-Vindas --- */
-
 .bem-vindo {
   position: fixed;
   top: 30px;
@@ -294,11 +296,11 @@ footer {
   transition: background-color 0.2s ease, transform 0.2s ease;
   flex-shrink: 0;
 }
- 
+
 .copiar-link:hover {
   background-color: #bbdefb;
 }
- 
+
 .copiar-link.copiado {
   background-color: #1565c0;
   color: #ffffff;
@@ -312,7 +314,7 @@ footer {
   left: 16px;
   z-index: 2;
 }
- 
+
 .compartilhar-btn {
   display: inline-flex;
   align-items: center;
@@ -320,20 +322,102 @@ footer {
   border: none;
   background-color: rgba(255, 255, 255, 0.15);
   color: #ffffff;
-  padding: 30px 70px;
+  padding: 6px 14px;
   border-radius: 999px;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
- 
+
 .compartilhar-btn:hover {
   background-color: rgba(255, 255, 255, 0.28);
 }
- 
+
 .compartilhar-btn.copiado {
   background-color: #ffffff;
   color: #1565c0;
 }
- 
+
+/* --- Botão de modo claro/escuro --- */
+.escuro-claro {
+  position: absolute;
+  top: 58px; /* logo abaixo do .compartilhar (que está em top: 16px) */
+  left: 16px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background-color: #ffffff; /* modo claro: branco */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(13, 59, 122, 0.12);
+  transition: background-color 0.2s ease;
+}
+
+body.escuro .escuro-claro {
+  background-color: #0d3b7a; /* modo escuro: azul escuro */
+}
+
+.escuro-claro img {
+  width: 18px;
+  height: 18px;
+}
+
+.escuro-claro .iconeescuro {
+  display: none;
+}
+
+body.escuro .escuro-claro .iconeclaro {
+  display: none;
+}
+
+body.escuro .escuro-claro .iconeescuro {
+  display: block;
+}
+
+/* --- Exceções do modo escuro --- */
+body.escuro {
+  background-color: #12181f;
+  color: #e8f1fd;
+}
+
+body.escuro .sobre-mim {
+  background-color: #1c2b3a;
+}
+
+body.escuro .sobre-mim h3 {
+  color: #cbd5e1;
+}
+
+body.escuro .container {
+  background-color: #1c2b3a;
+}
+
+body.escuro .container h1 {
+  color: #e8f1fd;
+}
+
+body.escuro header {
+  background: linear-gradient(135deg, #061529, #0d3b7a 60%, #124a91);
+}
+
+body.escuro .link-item {
+  background-color: #1c2b3a;
+}
+
+body.escuro .link-item:hover {
+  background-color: #24384a;
+}
+
+body.escuro .link-item li a {
+  color: #e8f1fd;
+}
+
+body.escuro footer {
+  background-color: #1c2b3a;
+  color: #94a8bd;
+}

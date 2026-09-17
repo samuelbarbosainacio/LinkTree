@@ -25,3 +25,7 @@ uniformizar os elementos, na parte da estilização.
 
 Desafio Extra: Fiz um botão de compartilhar o próprio linktree com outras pessoas, copiando o link da página para compartilhar.
 Fiz o html e JS enquanto a IA fez o CSS.
+
+Prompt: ok, eu fiz o html, tem como você fazer com que esse botão fique no canto superior esquerdo
+ e seja menor que os outros botões em comprimento,
+ tendo só o botão e o texto copiar em texto, tudo em css claro, aqui está o html.

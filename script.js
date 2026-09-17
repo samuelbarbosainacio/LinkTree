@@ -49,3 +49,17 @@ botaoCompartilhar.addEventListener("click", () => {
     botaoCompartilhar.disabled = false; 
   }, 1500);
 });
+
+// --- Botão de alternar modo escuro/claro ---
+
+const botaoEscuroClaro = document.querySelector(".escuro-claro");
+botaoEscuroClaro.addEventListener("click", () => {
+  if (document.body.classList.contains("escuro")) {
+    document.body.classList.remove("escuro");
+
+  } else {
+    document.body.classList.add("escuro");
+
+  }
+
+});
